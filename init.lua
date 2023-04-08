@@ -1,2 +1,1 @@
-require("ulascan")
-
+require('ulascan')

@@ -44,4 +44,12 @@ return require('packer').startup(function(use)
 	        {'rafamadriz/friendly-snippets'},
 	  }
 	}
+    use('onsails/lspkind.nvim')
+    use('jose-elias-alvarez/null-ls.nvim')
+    use('MunifTanjim/prettier.nvim')
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+        })
+
 end)
