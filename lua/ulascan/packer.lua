@@ -11,14 +11,9 @@ return require('packer').startup(function(use)
 	-- or                            , branch = '0.1.x',
   	requires = { {'nvim-lua/plenary.nvim'} }
 }
-	use ({
-		'bluz71/vim-moonfly-colors',
-		as = 'moonfly',
-		branch = 'cterm-compat',
-		config = function()
-			vim.cmd("colorscheme moonfly")
-		end
-	})
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { "bluz71/vim-moonfly-colors", as = "moonfly"}
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
 	use('nvim-treesitter/nvim-treesitter', {run=':TSUpdate'})
 	use('nvim-treesitter/playground')
 	use('ThePrimeagen/harpoon')
