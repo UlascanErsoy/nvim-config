@@ -35,3 +35,19 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+function generate_latex_preview()
+    filename = vim.fn.expand('%')
+    path = vim.api.nvim_call_function(
+                'fnamemodify', {filename, ':p:h'})
+
+    vim.cmd('silent !$(cd ' .. path .. ' && latexmk -verbose -file-line-error -synctex=1 -interaction=nonstopmode -pdf ' .. filename .. ')')
+    vim.cmd('silent !evince ' .. string.gsub(filename, ".tex", "%.pdf") .. ' &')
+end
+
+function show_latex_log()
+    filename = vim.fn.expand('%')
+    vim.cmd('split ' .. string.gsub(filename, ".tex", "%.log"))
+end
+vim.keymap.set("n", "<leader>P", generate_latex_preview)
+vim.keymap.set("n", "<leader>Pl",show_latex_log)

@@ -208,6 +208,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cake/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-latex-live-preview"] = {
+    loaded = true,
+    path = "/home/cake/.local/share/nvim/site/pack/packer/start/vim-latex-live-preview",
+    url = "https://github.com/xuhdev/vim-latex-live-preview"
+  },
+  vimtex = {
+    loaded = true,
+    path = "/home/cake/.local/share/nvim/site/pack/packer/start/vimtex",
+    url = "https://github.com/lervag/vimtex"
   }
 }
 
