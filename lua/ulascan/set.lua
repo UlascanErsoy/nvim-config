@@ -32,5 +32,5 @@ vim.opt.colorcolumn = "80"
 
 vim.g.mapleader = " "
 
-vim.cmd("colorscheme moonfly")
-vim.cmd("hi normal guibg=NONE")
+--vim.cmd("colorscheme moonfly")
+--vim.cmd("hi normal guibg=NONE")

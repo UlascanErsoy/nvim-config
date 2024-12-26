@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -41,7 +42,7 @@ function generate_latex_preview()
     path = vim.api.nvim_call_function(
                 'fnamemodify', {filename, ':p:h'})
 
-    vim.cmd('silent !$(cd ' .. path .. ' && latexmk -verbose -file-line-error -synctex=1 -interaction=nonstopmode -pdf ' .. filename .. ')')
+    vim.cmd('silent !$(cd ' .. path .. ' && latexmk -verbose -file-line-error -synctex=1 -interaction=nonstopmode -shell-escape -pdf ' .. filename .. ')')
     vim.cmd('silent !evince ' .. string.gsub(filename, ".tex", "%.pdf") .. ' &')
 end
 
